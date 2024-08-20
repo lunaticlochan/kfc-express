@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Account Management</title>
+  <style>
+    .account-container {
+      max-width: 400px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 20px;
+      padding: 20px;
+    }
+
+    
+    .card {
+      display: flex;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      margin: 20px;
+      height: 200px
+    }
+
+
+
+    * {
+      box-sizing: border-box;
+      border: none;
+      outline: none;
+      font-family: 'Poppins', sans-serif;
+      text-transform: capitalize;
+      transition: all 0.2s linear;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    footer {
+
+      background-color: #333;
+      color: #fff;
+      padding: 1em 0;
+      text-align: center;
+      border-radius: 10px;
+      margin: 0, auto;
+    }
+
+    footer p {
+      font-size: 20px
+    }
+
+    .logo {
+      font-size: 44px;
+      position: relative;
+      left: -100%;
+      animation: slideTitle 2s forwards;
+    }
+
+    nav {
+      display: flex;
+    }
+
+    nav ul {
+      margin: 10px;
+      list-style: none;
+      display: flex;
+    }
+
+    nav li {
+      margin: 15px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-size: 20px;
+    }
+
+
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 5px 0;
+      transition: 0.4s;
+    }
+
+    @media only screen and (max-width: 760px) {
+      .hamburger {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        transition: transform 0.4s ease-in-out;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 8px;
+        width: 95.47%;
+        background-color: #333;
+        z-index: 1;
+        border-radius: 10px;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav li {
+        margin: 10px 0;
+      }
+
+      .hamburger.active div:nth-child(1) {
+        transform: rotate(-45deg) translate(-9px, 9px);
+      }
+
+      .hamburger.active div:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active div:nth-child(3) {
+        transform: rotate(45deg) translate(-9px, -9px);
+      }
+
+      .logo {
+        font-size: 24px;
+      }
+    }
+
+    .mar {
+      width: 100%;
+      direction: left;
+      padding: 10px;
+      background-color: #333;
+      color: #fff;
+      border-radius: 10px;
+    }
+
+    @keyframes slideTitle {
+      to {
+        left: 0;
+      }
+    }
+
+    /* Add your CSS styles here */
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Add padding to containers */
+    .container {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      justify-content: space-around;
+    }
+
+    .container2 {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Full-width input fields */
+    input[type="username"],
+    input[type="password"] {
+      width: 100%;
+      padding: 15px;
+      margin: 5px 0 22px 0;
+      display: inline-block;
+      border: none;
+      background: #f1f1f1;
+      border-radius: 10px
+    }
+
+    input[type="username"]:focus,
+    input[type="password"]:focus {
+      background-color: #ddd;
+      outline: none;
+    }
+
+
+
+
+    /* Set a style for the submit/register button */
+    .loginbtn {
+      background-color: #333;
+      color: white;
+      padding: 16px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      opacity: 0.9;
+      border-radius: 10px;
+      letter-spacing: 2px;
+    }
+
+    .loginbtn:hover {
+      opacity: 1;
+    }
+
+    /* Add a blue username color to links */
+    a {
+      color: dodgerblue;
+      /* Set a grey background color and center the username of the "sign in" section */
+    }
+
+
+    .signin {
+      background-color: #f1f1f1;
+      text-align: cente
+    }
+
+    #orderList {
+      max-width: 600px;
+      margin: 0 auto;
+
+    }
+
+    .orderItem {
+      border-bottom: 1px solid #ccc;
+      padding: 10px 0;
+    }
+
+    .orderItem p {
+      margin: 5px 0;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .container .rightcol {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+      margin-bottom: 20px;
+      width: 373px;
+      overflow-y: auto;
+      height: 330px;
+    }
+
+    .leftcol {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+      margin-bottom: 20px;
+      width: 373px;
+      overflow-y: auto;
+      height: 330px;
+    }
+
+    .leftcol h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .rightcol h1 {
+      font-size: 25px;
+      margin-bottom: 20px;
+    }
+
+    .leftcol label {
+      font-size: 16px;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    .leftcol input[type="text"],
+    .leftcol input[type="number"],
+    .leftcol select {
+      width: calc(100% - 20px);
+      padding: 10px;
+      margin: 5px 0 22px 0;
+      display: inline-block;
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+
+    .leftcol input[type="text"]:focus,
+    .leftcol input[type="number"]:focus,
+    .leftcol select:focus {
+      background-color: #ddd;
+      outline: none;
+    }
+
+    .leftcol button[type="submit"] {
+      background-color: #333;
+      color: #fff;
+      padding: 16px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 94%;
+      opacity: 0.9;
+      border-radius: 10px;
+      letter-spacing: 2px;
+    }
+
+    .leftcol button[type="submit"]:hover {
+      opacity: 1;
+    }
+
+
+    /* Style the options in the dropdown */
+    select option {
+      background-color: #fff;
+      color: #333;
+      /* padding: 0px;  */
+      font-size: 17px;
+    }
+
+    /* Style the dropdown when it's focused */
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">KHAN FOOD COURT</div>
+    <div class="hamburger" onclick="toggleNav()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/menu">Menu</a></li>
+        <li><a href="/logout">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <form method="post" action="/pchange">
+
+
+    <div class="container2">
+      <h1 align="center">change your password</h1>
+      <label for="old-password"><b>old-password</b></label>
+      <input type="password" placeholder="Enter old password" name="oldpassword" id="old-password" required>
+
+      <label for="new-password"><b>New-Password</b></label>
+      <input type="password" placeholder="Enter new Password" name="newpassword" id="new-password"
+        oninput="checkPasswordStrength()" required>
+
+      <label for="new-password-repeat"><b>Repeat New-Password</b></label>
+      <input type="password" placeholder="Repeat new Password" name="newpasswordrepeat" id="new-password-repeat"
+        required>
+      <p id="error" style="color: red;"></p>
+      <div id="passwordStrength" style="margin-top: 10px;"></div>
+      <hr>
+
+      <button type="submit" class="loginbtn">Change</button>
+    </div>
+  </form>
+
+  <form action='/deleteaccount' method="post">
+
+
+    <div class="container2">
+      <h1 align="center">Delete your acoount?</h1>
+      <label for="password"><b>password</b></label>
+      <input type="password" placeholder="Enter password" name="password" id="password" required>
+      <hr>
+
+      <button type="submit" class="loginbtn">Delete</button>
+    </div>
+  </form>
+  <div class="container">
+    <div class="leftcol">
+      <form id="ratingForm" method="POST" action="rating">
+        <h1>Rate our items</h1>
+        <label for="productId">Select Product:</label>
+        <select id="productId" name="productId">
+          <% items.forEach(item=> { %>
+            <option value='<%= item.item_name %>'>
+              <%= item.item_name %>
+            </option>
+            <% }); %>
+        </select><br>
+        <script>
+          document.getElementById('submitBtn').addEventListener('click', function () {
+            const productId = document.getElementById('productId').value;
+            const formData = { productId: productId };
+
+            // Send form data to server using AJAX
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '/submit-rating');
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onload = function () {
+              if (xhr.status === 200) {
+                console.log('Rating submitted successfully');
+              } else {
+                console.error('Error submitting rating:', xhr.statusText);
+              }
+            };
+            xhr.onerror = function () {
+              console.error('Network error occurred');
+            };
+            xhr.send(JSON.stringify(formData));
+          });
+        </script>
+
+        <label for="rating">Your Rating:</label>
+        <input type="number" id="rating" name="rating" min="1" max="5">
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <div class="rightcol">
+      <h1>Order History</h1>
+      <% oh.forEach((item, index)=> { %>
+        <div class="item">
+          <div>
+            <p>Order Items:</p>
+            <ul>
+              <% item.order_items.trim().split('  ').forEach(orderItem => { %>
+                <% const cleanedOrderItem = orderItem.trim().startsWith('0') ? orderItem.trim().substring(1) :
+                orderItem.trim(); %>
+                <li>
+                  <%= cleanedOrderItem %>
+                </li>
+                <% }); %>
+
+            </ul>
+            <p class="rating">Date & Time: <%= formatDate(item.order_time) %>
+            </p>
+            <p class="price">Order Total: ₹<%= item.order_total %>
+            </p>
+          </div>
+        </div>
+        <% if (index !==oh.length - 1) { %>
+          <hr style="margin-top: 20px; margin-bottom: 20px; border: none; height: 1px; background-color: #ccc;">
+          <!-- Add a horizontal line between orders -->
+          <% } %>
+            <% }); %>
+              <% function formatDate(dateTimeString) { %>
+                <% const dateTime=new Date(dateTimeString); %>
+                  <% const options={ weekday: 'long' , year: 'numeric' , month: 'long' , day: 'numeric' ,
+                    hour: 'numeric' , minute: 'numeric' }; %>
+                    <%= dateTime.toLocaleDateString('en-US', options); %>
+                      <% } %>
+
+
+    </div>
+  </div>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const cards = document.querySelectorAll('.card');
+
+      cards.forEach(card => {
+        const stars = card.querySelectorAll('.star');
+        const ratingContainer = card.querySelector('.rating');
+        const submitBtn = card.querySelector('.submitBtn');
+        let selectedRating = 0;
+        let hasRated = false;
+        let isSubmitted = false;
+
+        stars.forEach((star) => {
+          star.addEventListener('click', function () {
+            if (!isSubmitted) {
+              selectedRating = this.getAttribute('data-rating');
+              resetStars();
+              highlightStars(selectedRating);
+              displayRating(selectedRating);
+              hasRated = true;
+            }
+          });
+
+          star.addEventListener('mouseover', function () {
+            if (!hasRated && !isSubmitted) {
+              const ratingValue = this.getAttribute('data-rating');
+              highlightStars(ratingValue);
+            }
+          });
+
+          star.addEventListener('mouseout', function () {
+            if (!hasRated && !isSubmitted) {
+              resetStars();
+            }
+          });
+        });
+
+        submitBtn.addEventListener('click', function () {
+          isSubmitted = true;
+          stars.forEach((star) => {
+            star.style.pointerEvents = 'none';
+          });
+        });
+
+        function resetStars() {
+          stars.forEach((star) => {
+            star.classList.remove('active');
+          });
+        }
+
+        function highlightStars(value) {
+          stars.forEach((star) => {
+            const starValue = star.getAttribute('data-rating');
+            if (starValue <= value) {
+              star.classList.add('active');
+            }
+          });
+        }
+
+        function displayRating(value) {
+          const ratingDisplay = card.querySelector('.rating-display');
+          ratingDisplay.textContent = `You rated: ${value} stars`;
+        }
+      });
+    });
+
+  </script>
+  <script>
+    const passwordInput = document.getElementById('new-password');
+    const repeatPasswordInput = document.getElementById('new-password-repeat');
+    const errorElement = document.getElementById('error');
+
+    function validatePasswords() {
+      const password = passwordInput.value;
+      const repeatPassword = repeatPasswordInput.value;
+
+      if (password !== repeatPassword) {
+        errorElement.textContent = 'Error: Passwords do not match.';
+      } else {
+        errorElement.textContent = '';
+      }
+    }
+
+    passwordInput.addEventListener('input', validatePasswords);
+    repeatPasswordInput.addEventListener('input', validatePasswords);
+  </script>
+  <script>
+    const passwordStrengthElement = document.getElementById('passwordStrength');
+
+    function checkPasswordStrength() {
+      const password = passwordInput.value;
+      const strength = calculatePasswordStrength(password);
+      const indicators = ['Very Weak', 'Weak', 'Moderate', 'Strong', 'Very Strong', 'No one Hack this(joke)'];
+
+      let color = '';
+      if (strength === 0) {
+        color = 'red';
+      } else if (strength === 1) {
+        color = 'orange';
+      } else if (strength === 2 || strength === 3) {
+        color = 'yellow';
+      } else if (strength >= 4) {
+        color = 'green';
+      }
+
+      passwordStrengthElement.textContent = `Password Strength: ${indicators[strength]}`;
+      passwordStrengthElement.style.color = color;
+    }
+
+    function calculatePasswordStrength(password) {
+      // Add your password strength logic here
+      // You may check length, use of uppercase letters, lowercase letters, numbers, and special characters
+      let strength = 0;
+
+      // Example criteria (you can adjust based on your requirements)
+      if (password.length >= 8) {
+        strength++;
+      }
+      if (/[A-Z]/.test(password)) {
+        strength++;
+      }
+      if (/[a-z]/.test(password)) {
+        strength++;
+      }
+      if (/\d/.test(password)) {
+        strength++;
+      }
+      if (/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+        strength++;
+      }
+
+      return strength;
+    }
+  </script>
+  <script>
+    function toggleNav() {
+      var nav = document.querySelector('nav');
+      var hamburger = document.querySelector('.hamburger');
+      var container = document.querySelector('.container');
+      hamburger.classList.toggle('active');
+      container.classList.toggle('active')
+      nav.classList.toggle('show');
+    }
+  </script>
+
+  <script>
+    document.getElementById("logout").addEventListener("click", function (e) {
+      e.preventDefault(); // Prevent the default action of the anchor tag
+      // Perform logout logic here, such as clearing session variables or making an AJAX call
+      // Redirect to logout.php or perform any other action as needed
+      window.location.href = "logout.php";
+    });
+  </script>
+  <script>
+
+
+
+  </script>
+
+  <footer>
+    <p>© 2024 Khan Food Court. All rights reserved.</p>
+  </footer>
+</body>
+
+</html>

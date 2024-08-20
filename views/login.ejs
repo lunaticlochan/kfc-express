@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+    * {
+
+      box-sizing: border-box;
+      border: none;
+      outline: none;
+      font-family: 'Poppins', sans-serif;
+      transition: all 0.2s linear;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      border-radius: 10px;
+    }
+
+    footer {
+      border-radius: 10px;
+      background-color: #333;
+      color: #fff;
+      padding: 1em 0;
+      text-align: center;
+      margin: 0, auto;
+    }
+
+    nav li {
+      float: right;
+      display: inline;
+      margin: 15px
+    }
+
+    nav li a {
+      text-decoration: none;
+      color: white;
+      font-size: 20px
+    }
+
+    footer p {
+      font-size: 20px
+    }
+
+    /* Add your CSS styles here */
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Add padding to containers */
+    .container {
+      padding: 10px;
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    }
+
+    /* Full-width input fields */
+    input[type="username"],
+    input[type="password"] {
+      width: 100%;
+      padding: 15px;
+      margin: 5px 0 22px 0;
+      display: inline-block;
+      border: none;
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+
+    input[type="username"]:focus,
+    input[type="password"]:focus {
+      background-color: #ddd;
+      outline: none;
+    }
+
+
+
+    /* Set a style for the submit/register button */
+    .loginbtn {
+      background-color: #333;
+      color: white;
+      padding: 16px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 17%;
+      opacity: 0.9;
+      border-radius: 10px;
+      letter-spacing: 2px;
+    }
+
+    .loginbtn:hover {
+      opacity: 1;
+    }
+
+    /* Add a blue username color to links */
+    a {
+      color: dodgerblue;
+      /* Set a grey background color and center the username of the "sign in" section */
+    }
+
+
+    .signin {
+      background-color: #f1f1f1;
+      text-align: cente
+    }
+
+    .logo {
+      font-size: 44px;
+      position: relative;
+      left: -100%;
+      animation: slideTitle 2s forwards;
+    }
+
+    nav {
+      display: flex;
+    }
+
+    nav ul {
+      margin: 10px;
+      list-style: none;
+      display: flex;
+    }
+
+    nav li {
+      margin: 15px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-size: 20px;
+    }
+
+
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 5px 0;
+      transition: 0.4s;
+    }
+
+    @media only screen and (max-width: 760px) {
+      .hamburger {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        transition: transform 0.4s ease-in-out;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 8px;
+        width: 95.47%;
+        background-color: #333;
+        z-index: 1;
+        border-radius: 10px;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav li {
+        margin: 10px 0;
+      }
+
+      .hamburger.active div:nth-child(1) {
+        transform: rotate(-45deg) translate(-9px, 9px);
+      }
+
+      .hamburger.active div:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active div:nth-child(3) {
+        transform: rotate(45deg) translate(-9px, -9px);
+      }
+
+      .logo {
+        font-size: 24px;
+      }
+
+    }
+
+    .mar {
+      width: 100%;
+      direction: left;
+      padding: 10px;
+      background-color: #333;
+      color: #fff;
+      border-radius: 10px;
+    }
+
+    @keyframes slideTitle {
+      to {
+        left: 0;
+      }
+    }
+
+    /* Add your CSS styles here */
+    * {
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <header>
+    <div class="logo">KHAN FOOD COURT</div>
+    <div class="hamburger" onclick="toggleNav()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="menu">Menu</a>
+        <li><a href="/">Home</a>
+      </ul>
+    </nav>
+  </header>
+
+
+  <form action="/login" method="post">
+
+    <h1 align="center">Login</h1>
+    <p align="center">Enter your details to login</p>
+
+    <div class="container">
+      <label for="username"><b>username</b></label>
+      <input type="username" placeholder="Enter username" name="username" id="username" required>
+
+      <label for="password"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="password" id="password" required>
+
+
+      <hr>
+
+
+      <center><button type="submit" class="loginbtn">Login</button></center>
+    </div>
+
+    <div class="container">
+      <p>Do not have an account? <a href="reg">Register here</a>.</p>
+    </div>
+  </form>
+  <footer>
+    <p>© 2024 Khan Food Court. All rights reserved.</p>
+  </footer>
+
+
+</body>
+<script>
+
+  function toggleNav() {
+    var nav = document.querySelector('nav');
+    var hamburger = document.querySelector('.hamburger');
+    var container = document.querySelector('.container');
+    hamburger.classList.toggle('active');
+    container.classList.toggle('active')
+    nav.classList.toggle('show');
+  }
+
+</script>
+
+</html>
